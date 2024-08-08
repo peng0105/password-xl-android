@@ -48,12 +48,15 @@ public class MainActivity extends AppCompatActivity {
         // 允许 JavaScript 执行
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setAllowFileAccess(true);
+        webView.getSettings().setAllowContentAccess(true);
 
         webView.addJavascriptInterface(new WebAppInterface(getFilesDir()), "androidAPI");
 
 
         // 加载 URL
-        webView.loadUrl("https://password-xl.cn/#/");
+//        webView.loadUrl("https://password-xl.cn/#/");
+        webView.loadUrl("file:///android_asset/index.html");
     }
 
     @Override
